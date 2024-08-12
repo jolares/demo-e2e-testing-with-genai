@@ -1,0 +1,47 @@
+{
+  "name": "demo-ui-app",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/demo-ui-app/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/rspack:rspack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "target": "web",
+        "outputPath": "dist/apps/demo-ui-app",
+        "main": "apps/demo-ui-app/src/main.tsx",
+        "tsConfig": "apps/demo-ui-app/tsconfig.app.json",
+        "rspackConfig": "apps/demo-ui-app/rspack.config.js",
+        "assets": [
+          "apps/demo-ui-app/src/favicon.ico",
+          "apps/demo-ui-app/src/assets"
+        ]
+      },
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production",
+          "optimization": true,
+          "sourceMap": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/rspack:dev-server",
+      "options": {
+        "buildTarget": "demo-ui-app:build:development"
+      },
+      "configurations": {
+        "development": {},
+        "production": {
+          "buildTarget": "demo-ui-app:build:production"
+        }
+      }
+    }
+  }
+}
