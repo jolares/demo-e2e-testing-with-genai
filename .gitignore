@@ -8,6 +8,9 @@ tmp
 # dependencies
 node_modules
 
+# Midscene.js run files
+midscene_run/
+
 # IDEs and editors
 /.idea
 .project
@@ -40,6 +43,9 @@ Thumbs.db
 
 .nx/cache
 .nx/workspace-data
+
+# Playwright
+playwright-report/
 
 # Secrets and other sensitive data files
 .env
